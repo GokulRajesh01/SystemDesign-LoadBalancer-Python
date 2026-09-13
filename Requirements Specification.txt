@@ -1,0 +1,20 @@
+SYSTEM DESIGN PROJECT 3: LOAD BALANCE SIMULATOR
+
+-> Functional Requirements
+a. The load balancer shall forward incoming requests to the backend servers in Round Robin order, cycling back to the first server after the last configured server.
+b. Each server shall respond with "Hello from Server <server_number>!" when load balancer forwards the incoming request
+
+Scope definition and implementation constraints:
+1. The system shall be implemented using Python Flask.
+2. Python's requests library shall be used to forward requests to servers in order.
+3. Each backend server and the load balancer shall expose a GET /data endpoint. The load balancer shall forward incoming requests received at GET /data to the selected backend server's GET /data endpoint.
+4. Authentication and authorization are outside the scope of this implementation.
+
+API End points - 
+1.GET /data shall be exposed by the load balancer and all backend Flask applications. The load balancer shall forward incoming requests to the selected backend server’s /data endpoint.
+
+Assumptions :
+1. There shall only be 3 mock servers in this MVP to simulate a load balancer working
+2. Each mock server shall be implemented as separate python flask applications.
+3. The load balancer shall use a predefined list of the three backend server URLs.
+4. The load balancer shall maintain a current server position to determine the next backend server.
